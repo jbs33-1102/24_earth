@@ -25,30 +25,8 @@
                 <input type="text" class="form-control" id="q2" placeholder="답변을 입력하세요">
             </div>
 
-            <!-- 제출 버튼 -->
-            <button type="button" class="btn btn-primary" onclick="submitForm()">저장</button>
-        </form>
-
-        <!-- 결과 표시 영역 -->
-        <div id="result" class="mt-4"></div>
-
         <a href="index.html" class="btn btn-secondary mt-3">돌아가기</a>
     </div>
 
-    <script>
-        function submitForm() {
-            // 입력된 값 가져오기
-            const q1 = document.getElementById('q1').value;
-            const q2 = document.getElementById('q2').value;
-
-            // 결과를 표시할 영역에 출력
-            const resultDiv = document.getElementById('result');
-            resultDiv.innerHTML = `
-                <h3>제출한 답변</h3>
-                <p><strong>1:</strong> ${q1}</p>
-                <p><strong>2:</strong> ${q2}</p>
-            `;
-        }
-    </script>
 </body>
 </html>
