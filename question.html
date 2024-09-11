@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>질문</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container py-4">
+        <h1 class="mb-4">질문 목록</h1>
+
+        <!-- 질문 폼 -->
+        <form id="questionForm">
+            <div class="mb-3">
+                <label for="q1" class="form-label">1. 실험에서 사용한 광도계의 정확도는 어느 정도인가요?</label>
+                <input type="text" class="form-control" id="q1" placeholder="답변을 입력하세요">
+            </div>
+            <div class="mb-3">
+                <label for="q2" class="form-label">2. 파라핀의 온도 변화가 실험 결과에 미친 영향은 무엇인가요?</label>
+                <input type="text" class="form-control" id="q2" placeholder="답변을 입력하세요">
+            </div>
+            <div class="mb-3">
+                <label for="q3" class="form-label">3. 실험 도중 발생한 오차를 어떻게 보정했나요?</label>
+                <input type="text" class="form-control" id="q3" placeholder="답변을 입력하세요">
+            </div>
+
+            <!-- 제출 버튼 -->
+            <button type="button" class="btn btn-primary" onclick="submitForm()">제출</button>
+        </form>
+
+        <!-- 결과 표시 영역 -->
+        <div id="result" class="mt-4"></div>
+    </div>
+
+    <script>
+        function submitForm() {
+            // 입력된 값 가져오기
+            const q1 = document.getElementById('q1').value;
+            const q2 = document.getElementById('q2').value;
+            const q3 = document.getElementById('q3').value;
+
+            // 결과를 표시할 영역에 출력
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = `
+                <h3>제출한 답변</h3>
+                <p><strong>1:</strong> ${q1}</p>
+                <p><strong>2:</strong> ${q2}</p>
+                <p><strong>3:</strong> ${q3}</p>
+            `;
+        }
+    </script>
+</body>
+</html>
