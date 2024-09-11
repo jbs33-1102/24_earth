@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>광도 계산기</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="mb-4">광도 계산기</h1>
+
+        <form id="lightForm">
+            <div class="mb-3">
+                <label for="brightness" class="form-label">조명의 밝기 (단위: W(와트))</label>
+                <input type="number" class="form-control" id="brightness" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="x" class="form-label">x 값 (거리)</label>
+                <input type="number" class="form-control" id="x" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="y" class="form-label">y 값 (거리)</label>
+                <input type="number" class="form-control" id="y" required>
+            </div>
+
+            <button type="button" class="btn btn-primary" onclick="calculateIlluminance()">계산</button>
+        </form>
+
+        <div class="mt-4">
+            <h3>광도: <span id="result">--</span></h3>
+        </div>
+
+        <a href="index.html" class="btn btn-secondary mt-3">돌아가기</a>
+    </div>
+
+    <script>
+        function calculateIlluminance() {
+            // 입력값 가져오기
+            const brightness = document.getElementById('brightness').value;
+            const x = document.getElementById('x').value;
+            const y = document.getElementById('y').value;
+
+            // 입력값이 올바른지 확인
+            if (brightness > 0 && x > 0 && y > 0) {
+                // 광도 계산
+                const illuminance = brightness * Math.pow(y, 2) / Math.pow(x, 2);
+                // 결과 표시
+                document.getElementById('result').innerText = illuminance.toFixed(2) + ' lx'; // lx는 럭스 단위
+            } else {
+                alert('모든 값을 정확히 입력해주세요.');
+            }
+        }
+    </script>
+</body>
+</html>
